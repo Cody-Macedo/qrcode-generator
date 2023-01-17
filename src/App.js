@@ -6,15 +6,15 @@ import './App.css';
 function App() {
 
   const [url, setUrl] = useState('')
-  const [color, setColor] = useState('#000000')
+  const [color, setColor] = useState('')
   const [qrcode, setQrCode] = useState('')
 
   const GenerateQRCode = () => {
-    QRCode.toDataURL(url,{
+    QRCode.toDataURL(url, {
       width: 500,
       margin: 1,
       color: {
-        dark: color,
+        dark: color ? color : "#000000",
         light: "#ffffff00"
       }
     }, (err, url) => {
